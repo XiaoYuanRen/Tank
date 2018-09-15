@@ -5,6 +5,8 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Pawn.h"
 #include "RunTime/Engine/Classes/Components/ArrowComponent.h"
+#include "RunTime/Engine/Classes/Camera/CameraComponent.h"
+#include "RunTime/Engine/Classes/GameFramework/SpringArmComponent.h"
 #include "Paper2D/Classes/PaperSpriteComponent.h"
 #include "PTank.generated.h"
 
@@ -39,5 +41,11 @@ private:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "TankBase", meta = (AllowPrivateAccess = "true"))
 		UChildActorComponent* ChildTurret;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "TankBase", meta = (AllowPrivateAccess = "true"))
+		UCameraComponent* TankCamera;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "TankBase", meta = (AllowPrivateAccess = "true"))
+		USpringArmComponent* SpringArm;
 	
 };

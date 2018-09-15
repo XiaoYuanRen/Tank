@@ -23,6 +23,19 @@ APTank::APTank()
 	ChildTurret = CreateDefaultSubobject<UChildActorComponent>(TEXT("TankTurret"));
 	ChildTurret->AttachTo(TankDirection);
 
+	SpringArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArm"));
+	SpringArm->AttachTo(RootComponent);
+	SpringArm->TargetArmLength = 500.0f;
+	SpringArm->bEnableCameraLag = true;
+	SpringArm->bEnableCameraRotationLag = false;
+	SpringArm->bUsePawnControlRotation = false;
+	SpringArm->CameraLagSpeed = 2.0f;
+	SpringArm->bDoCollisionTest = false;
+	SpringArm->SetRelativeRotation(FRotator(-90.0f, 0.0f, 0.0f));
+
+	TankCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("TankCamera"));
+	TankCamera->AttachTo(SpringArm);
+
 
 }
 
